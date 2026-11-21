@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programador de Poemas</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #14111f; color: #f2eee8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem; line-height: 1.8;
+  }
+  #binario { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  main { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 3rem 1rem 6rem; }
+  h1 { color: #e8b86b; font-size: clamp(2rem, 6vw, 3rem); margin: 0 0 .5rem; line-height: 1.2; }
+  h2 { color: #e8b86b; font-size: 1.6rem; margin: 0 0 1rem; line-height: 1.3; }
+  .subtitulo { color: #d9d3e6; font-size: 1.2rem; }
+  p { color: #d9d3e6; margin: 0 0 1rem; }
+  strong { color: #f2eee8; }
+  .bloco {
+    background: rgba(20, 17, 31, 0.9);
+    border-radius: 16px; padding: 2rem 1.5rem; margin-bottom: 2rem;
+  }
+  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .card { background: #231d3a; border-radius: 12px; padding: 1.2rem; }
+  .card h3 { margin: 0 0 .6rem; font-size: 1.1rem; color: #f2eee8; }
+  .card p { font-size: 1rem; margin: 0 0 .6rem; }
+  .assinatura { color: #e8b86b; font-style: italic; }
+
+  .revelar { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+  .revelar.visivel { opacity: 1; transform: none; }
+
+  #pausar {
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 10;
+    background: #231d3a; color: #f2eee8;
+    border: 1px solid #e8b86b; border-radius: 999px;
+    padding: .6rem 1.1rem; font-size: 1rem; font-family: inherit; cursor: pointer;
+  }
+  #pausar:hover, #pausar:focus-visible { background: #e8b86b; color: #14111f; outline: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .revelar { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="binario" aria-hidden="true"></canvas>
+<button id="pausar" type="button" aria-pressed="false">⏸ Pausar animação</button>
+
+<main>
+
+  <div class="bloco revelar">
+    <h1>🎭 Programador de Poemas</h1>
+    <p class="subtitulo">Tecnologia Social de Acessibilidade Cognitiva, Inclusão Textual e Soberania Artística</p>
+  </div>
+
+  <div class="bloco revelar">
+    <h2>📌 Visão Geral do Projeto</h2>
+    <p>O Programador de Poemas é um framework autoral de Pesquisa e Desenvolvimento (P&amp;D) focado em acessibilidade cognitiva e inclusão textual. Mais do que uma simples aplicação de Inteligência Artificial Generativa, o projeto opera como uma tecnologia social assistiva projetada para reduzir as barreiras de expressão literária.</p>
+    <p>A metodologia foi desenhada para apoiar pessoas neurodivergentes (como indivíduos com TDAH e dislexia) ou qualquer pessoa que enfrente bloqueios severos ao transmutar sentimentos, ideias e pensamentos brutos em narrativa, poesia ou composição.</p>
+  </div>
+
+  <div class="bloco revelar">
+    <h2>🏗️ Pilares Metodológicos e Arquitetura</h2>
+    <div class="grade">
+      <div class="card">
+        <h3>🧠 Acessibilidade Cognitiva</h3>
+        <p><strong>Foco:</strong> Redução de ruído semântico e atrito cognitivo.</p>
+        <p><strong>Propósito:</strong> Permitir que o pensamento em estado bruto ganhe fluidez, corpo e estrutura formal sem travar a escrita.</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ Preservação da Autoria (HITL)</h3>
+        <p><strong>Foco:</strong> Governança Human-in-the-Loop com supervisão direta.</p>
+        <p><strong>Propósito:</strong> Garantir que a IA atue estritamente na organização semântica, mantendo a voz original do criador.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 Licença Poética Inegociável</h3>
+        <p><strong>Foco:</strong> Proteção de metáforas, figuras de linguagem e tom.</p>
+        <p><strong>Propósito:</strong> Impedir que a automação pasteurize a visceralidade, a analogia ou a identidade artística da obra.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Mediação Ética no Meio Criativo</h3>
+        <p><strong>Foco:</strong> Consultoria, acolhimento e desmistificação da IA.</p>
+        <p><strong>Propósito:</strong> Desconstruir preconceitos no meio artístico, provando que a tecnologia pode ser aliada da soberania do autor.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloco revelar">
+    <h2>🔬 Origem e Validação: O Autor como Experimento Social</h2>
+    <p>O framework não nasceu de hipóteses teóricas de laboratório, mas de um processo contínuo de escrita autoral praticado ao longo de décadas.</p>
+    <p>O criador atua como o primeiro experimento social da própria metodologia: a tecnologia foi testada e lapidada na pele de quem escreve, garantindo que o fluxo agêntico respeite os limites da sensibilidade humana e sirva como uma extensão da voz, jamais como substituto da alma criativa.</p>
+  </div>
+
+  <div class="bloco revelar">
+    <h2>🛡️ Governança, Ética e Modelo de Atuação</h2>
+    <p><strong>Zero-Trust &amp; Privacidade:</strong> Nenhum dado pessoal, rascunho sensível ou propriedade intelectual não autorizada é exposto em modelos abertos sem o devido isolamento e sanitização.</p>
+    <p><strong>Potencial de Aplicação Extensiva:</strong> Embora validado com o suporte à escrita poética, o framework possui arquitetura escalável para consultorias de acessibilidade, ambientes educacionais, apoio a editoras e desenvolvimento de ferramentas inclusivas.</p>
+    <p><strong>Humanidade no Centro:</strong> O código e os algoritmos servem à cognição e ao sentimento humano — nunca o contrário.</p>
+  </div>
+
+  <div class="bloco revelar">
+    <p class="assinatura">Desenvolvido sob o codinome artístico A Invasão do Poeta | Projeto de Tecnologia Social e P&amp;D</p>
+  </div>
+
+</main>
+
+<script>
+  const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pausado = reduzir;
+
+  /* ---------- Chuva de binário ---------- */
+  const canvas = document.getElementById('binario');
+  const ctx = canvas.getContext('2d');
+  const tamanho = 18;
+  let colunas, gotas;
+
+  function ajustar() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    colunas = Math.floor(canvas.width / tamanho);
+    gotas = Array.from({ length: colunas }, () => Math.random() * -50);
+    ctx.fillStyle = '#14111f';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function quadro() {
+    ctx.fillStyle = 'rgba(20, 17, 31, 0.10)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = tamanho + 'px "Courier New", monospace';
+    ctx.fillStyle = 'rgba(232, 184, 107, 0.55)';
+    for (let i = 0; i < colunas; i++) {
+      const y = gotas[i] * tamanho;
+      if (y > 0) ctx.fillText(Math.random() > 0.5 ? '1' : '0', i * tamanho, y);
+      if (y > canvas.height && Math.random() > 0.975) gotas[i] = 0;
+      gotas[i] += 0.5;
+    }
+  }
+
+  function quadroParado() {
+    ctx.fillStyle = '#14111f';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = tamanho + 'px "Courier New", monospace';
+    ctx.fillStyle = 'rgba(232, 184, 107, 0.12)';
+    for (let x = 0; x < canvas.width; x += tamanho)
+      for (let y = tamanho; y < canvas.height; y += tamanho * 1.6)
+        ctx.fillText(Math.random() > 0.5 ? '1' : '0', x, y);
+  }
+
+  let ultimo = 0;
+  function laco(t) {
+    if (!pausado && !document.hidden && t - ultimo > 60) { quadro(); ultimo = t; }
+    requestAnimationFrame(laco);
+  }
+
+  window.addEventListener('resize', () => { ajustar(); if (pausado) quadroParado(); });
+  ajustar();
+  if (pausado) quadroParado();
+  requestAnimationFrame(laco);
+
+  /* ---------- Texto que sai do binário ---------- */
+  function decifrar(bloco) {
+    const andador = document.createTreeWalker(bloco, NodeFilter.SHOW_TEXT);
+    const itens = [];
+    let no;
+    while ((no = andador.nextNode())) {
+      if (no.textContent.trim() === '') continue;
+      itens.push({ no, letras: Array.from(no.textContent), original: no.textContent });
+    }
+    const duracao = 1500;
+    const inicio = performance.now();
+
+    function passo(agora) {
+      if (pausado) { itens.forEach(i => i.no.textContent = i.original); return; }
+      const p = Math.min((agora - inicio) / duracao, 1);
+      itens.forEach(i => {
+        const reveladas = Math.floor(p * i.letras.length);
+        i.no.textContent = i.letras.map((c, k) =>
+          (k < reveladas || /\s/.test(c)) ? c : (Math.random() > 0.5 ? '1' : '0')
+        ).join('');
+      });
+      if (p < 1) requestAnimationFrame(passo);
+      else itens.forEach(i => i.no.textContent = i.original);
+    }
+    requestAnimationFrame(passo);
+  }
+
+  /* ---------- Mostrar blocos ao rolar ---------- */
+  const blocos = document.querySelectorAll('.revelar');
+
+  function mostrar(bloco) {
+    bloco.classList.add('visivel');
+    if (!pausado) decifrar(bloco);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((itens) => {
+      itens.forEach(i => {
+        if (i.isIntersecting) { mostrar(i.target); obs.unobserve(i.target); }
+      });
+    }, { threshold: 0.2 });
+    blocos.forEach(b => obs.observe(b));
+  } else {
+    blocos.forEach(b => b.classList.add('visivel'));
+  }
+
+  /* ---------- Botão de pausa ---------- */
+  const botao = document.getElementById('pausar');
+  function atualizarBotao() {
+    botao.textContent = pausado ? '▶ Retomar binário' : '⏸ Pausar animação';
+    botao.setAttribute('aria-pressed', String(pausado));
+  }
+  botao.addEventListener('click', () => {
+    pausado = !pausado;
+    if (pausado) {
+      quadroParado();
+      blocos.forEach(b => b.classList.add('visivel'));
+    } else {
+      ajustar();
+    }
+    atualizarBotao();
+  });
+  atualizarBotao();
+</script>
+</body>
+</html>
